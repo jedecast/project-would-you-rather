@@ -20,12 +20,13 @@ class Bar extends Component {
 
 
   render() {
-    const { width, children, chosenAnswer } = this.props
+    const { children, chosenAnswer, optionPercentage, optionTotal } = this.props
 
     return(
-      <ProgressDiv style={{width: width}}>
+      <ProgressDiv style={chosenAnswer ? {fontWeight:'800'} : {fontWeight:'400'}}>
         <Progress style={ chosenAnswer ? {backgroundColor: 'rgba(29, 161, 242, 0.7)', width: `${this.state.progress}px`} : {backgroundColor: 'rgb(233, 233, 233)', width: `${this.state.progress}px`}}>
-          <OptionText style={chosenAnswer ? {fontWeight:'800'} : {fontWeight:'400'}}>{ children }</OptionText>
+          <OptionText>{ children }</OptionText>
+          <Percentage>{optionTotal} | {optionPercentage}%</Percentage>
         </Progress>
       </ProgressDiv>
     )
@@ -34,6 +35,7 @@ class Bar extends Component {
 const ProgressDiv = styled.div`
   border-radius: 8px;
   margin-top: 8px;
+  position: relative;
 `
 
 const Progress = styled.div`
@@ -49,7 +51,15 @@ const Progress = styled.div`
 
 const OptionText = styled.span`
   padding-left: 16px;
+  position: relative;
+  width: 100%;
 `
+
+const Percentage = styled.span`
+  position: absolute;
+  right: 4px;
+`
+
 
 
 export default Bar

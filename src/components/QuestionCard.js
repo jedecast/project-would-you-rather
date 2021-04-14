@@ -51,6 +51,8 @@ class QuestionCard extends Component {
     const optionOneTotal = optionOneVotes.length
     const optionTwoTotal = optionTwoVotes.length
     const total = optionOneTotal + optionTwoTotal
+    const optionOnePercentage = (optionOneTotal/total * 100).toFixed(2)
+    const optionTwoPercentage = (optionTwoTotal/total * 100).toFixed(2)
 
     return(
       <Container>
@@ -67,12 +69,16 @@ class QuestionCard extends Component {
                         width={'484'}
                         percent={this.calculatePercentage('optionOne', optionOneTotal, optionTwoTotal)}
                         chosenAnswer={optionOneVotes.includes(authedUser)}
+                        optionTotal={optionOneTotal}
+                        optionPercentage={optionOnePercentage}
                         >
                         {optionOneText}
                       </BarPoll>
                       <BarPoll width={'484'}
                         percent={this.calculatePercentage('optionTwo', optionOneTotal, optionTwoTotal)}
                         chosenAnswer={optionTwoVotes.includes(authedUser)}
+                        optionTotal={optionTwoTotal}
+                        optionPercentage={optionTwoPercentage}
                         >
                         {optionTwoText}
                       </BarPoll>

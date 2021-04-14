@@ -32,7 +32,7 @@ class Nav extends Component {
 
   toCreateQuestion = (e) => {
     e.preventDefault()
-    this.props.history.push(`/CreateQuestion`)
+    this.props.history.push(`/Add`)
     this.setState(() => ({
       page: ''
     }))

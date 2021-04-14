@@ -33,7 +33,7 @@ const CardsContainer = styled.div`
   margin-left: 60px;
 `
 
-const Container404 = styled.div`
+export const Container404 = styled.div`
   font-weight: 800;
   font-size: 20px;
   width: 100%;

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import RightContainer from './RightContainer'
-import { Container, QuestionContainer, ContentContainer, Avatar, Button } from './QuestionCard'
+import { Container, QuestionContainer, ContentContainer, Avatar } from './QuestionCard'
 import { CardsContainer } from './Dashboard'
 
 class LeaderBoard extends Component {
@@ -98,9 +98,6 @@ function mapStateToProps ( { authedUser, users } ) {
   userLeaderBoard = userLeaderBoard.sort(function(a, b) {
       return b[1] - a[1];
     });
-
-  console.log(userLeaderBoard)
-
 
   return {
     users,

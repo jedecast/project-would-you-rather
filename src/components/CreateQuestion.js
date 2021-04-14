@@ -48,7 +48,7 @@ class CreateQuestion extends Component {
   }
 
   render() {
-    const { avatarURL, authedUser } = this.props
+    const { avatarURL } = this.props
     const backgroundImage = 'url(' + avatarURL + ')'
 
     if (this.state.toHome === true) {

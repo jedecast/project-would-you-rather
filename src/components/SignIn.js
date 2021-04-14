@@ -15,12 +15,9 @@ class SignIn extends Component {
   handleOnChange = ( e ) => {
     e.preventDefault()
     const value = e.target.value
-    console.log(value)
     this.setState(() => ({
       authedUser: value,
     }))
-
-
 
   }
 
@@ -29,6 +26,7 @@ class SignIn extends Component {
     e.preventDefault()
     const { dispatch } = this.props
     const authedUser = e.target[0].value
+    console.log(authedUser)
     dispatch(handleSetAuthedUser(authedUser))
   }
 

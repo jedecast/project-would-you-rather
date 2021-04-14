@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading-bar'
 import Dashboard from './Dashboard'
@@ -11,11 +11,12 @@ import Nav from './Nav'
 import LeaderBoard from './LeaderBoard'
 import CreateQuestion from './CreateQuestion'
 import SignIn from './SignIn'
+import { Container404 } from './QuestionPage'
 
 const Page404 = () => (
-   <div>
-      <h4>Sorry, that page does not exist!</h4>
-   </div>
+  <Container404>
+     <p>Sorry, that page does not exist!</p>
+  </Container404>
 );
 
 class App extends Component {
@@ -23,13 +24,6 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
-
-  handleUserAuthentication = () => {
-    this.setState(() => ({
-      isUserAuthenticated: true
-    }))
-  }
-
 
 
   render() {
@@ -56,7 +50,7 @@ class App extends Component {
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/question/:id' component={QuestionPage} />
                   <Route path='/LeaderBoard' component={LeaderBoard} />
-                  <Route path='/CreateQuestion' component={CreateQuestion} />
+                  <Route path='/Add' component={CreateQuestion} />
                   <Route component={Page404} />
                 </Switch>
             }

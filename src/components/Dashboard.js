@@ -23,7 +23,10 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { allQuestionsID, userAnswersID } = this.props
+    const { questions, userAnswersID } = this.props
+    const allQuestionsID = Object.keys(questions)
+      .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+
     return(
       <RightContainer sectionTitle='Home'>
         <TabContainer>
@@ -49,11 +52,13 @@ class Dashboard extends Component {
           {!this.state.isOnUnanswered &&
             <div>
               <CardList>
-              {userAnswersID.map((id) => (
-                <li key={id}>
-                  <QuestionCard id={id} />
-                </li>
-              ))}
+              { allQuestionsID.filter((id) => (
+                  userAnswersID.includes(id)
+                )).map((id) => (
+                  <li key={id}>
+                    <QuestionCard id={id} />
+                  </li>
+                ))}
               </CardList>
             </div>
           }
@@ -102,9 +107,8 @@ function mapStateToProps ( state ) {
   const user = state.authedUser
 
   return {
-    allQuestionsID: Object.keys(questions)
-      .sort((a,b) => questions[b].timestamp - questions[a].timestamp),
-    userAnswersID: Object.keys(state.users[user].answers)
+    userAnswersID: Object.keys(state.users[user].answers),
+    questions,
   }
 }
 
