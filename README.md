@@ -6,6 +6,49 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
+
+# Jan's Would You Rather Project - Twitter Style
+
+Insert description of the project here....
+
+## TL;DR
+
+To get started developing right away:
+
+* clone the project using `git clone https://github.com/jedecast/project-would-you-rather`
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
+## What's included
+```bash
+├── CONTRIBUTING.md
+├── README.md - This file.
+├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── public
+│   ├── favicon.ico # React Icon, You may change if you wish.
+│   └── index.html # DO NOT MODIFY
+└── src
+    ├── App.css # Styles for your app. Feel free to customize this as you desire.
+    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── BookItem.js # This holds the individual book component that renders the thumbnail, title, author, and category selection.
+    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    ├── BooksGrid.js # Renders the entire list of books. Component is used in the main page and search page.
+    ├── icons # Helpful images for your app. Use at your discretion.
+    │   ├── add.svg
+    │   ├── arrow-back.svg
+    │   └── arrow-drop-down.svg
+    ├── index.css # Didn't use index.css starter file. Instead, I used styled components to create a custom design fo the app
+    ├── index.js # Added Brower Router to support url tracking
+    ├── navMenu.js # Holds the "MyReads" logo and the "Add a Book" button that leads you to the search page
+    └── searchBooks.js # Search page that includes the back button, the input field, and a grid that allows you to search for books
+```
+
+## Extra Packages Downloaded
+
+Downloaded react bootstrap (https://react-bootstrap.github.io/) and styled components (https://styled-components.com/) to help with custom styling. Redux and router has also been installed like the previous lessons.
+
 ## Data
 
 There are two types of objects stored in our database:
