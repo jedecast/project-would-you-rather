@@ -1,19 +1,14 @@
-# Would You Rather Project
-
-This is the starter code for the final assessment project for Udacity's React & Redux course.
-
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
-
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
-
-
 # Jan's Would You Rather Project - Twitter Style
 
-Insert description of the project here....
+The Would You Rather Project is an app that allows you to view different "would you rather" questions asked by different users. You have the ability to see answered and unanswered questions, answer any and view the results of any poll, and as well as create your own "would you rather question". Clicking on the Leader Board page will give you a glance of how you rank amongst other users in the page.
+
+The `_DATA.js` file represents a fake database and methods that let you access the data.   
+
+I used the starter code provided in this application and used [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
 ## TL;DR
 
-To get started developing right away:
+To get started opening the project right away:
 
 * clone the project using `git clone https://github.com/jedecast/project-would-you-rather`
 * install all project dependencies with `npm install`
@@ -23,26 +18,40 @@ To get started developing right away:
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
 │   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BookItem.js # This holds the individual book component that renders the thumbnail, title, author, and category selection.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── BooksGrid.js # Renders the entire list of books. Component is used in the main page and search page.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
+    ├── actions
+    │   ├── authedUser.js #handles dispatching Authenticated User to store
+    │   ├── questions.js #handles dispatching new questions and saving replies of existing questions to store
+    │   ├── shared.js #handles initializing data (users and questions) from API to store
+    │   └── users.js #handles dispatching which questions users answered and created to store
+    ├── components
+    │   ├── App.js # Root of app. Checks if AUTHED_USER has been set (not set = show login, set = show dashboard)
+    │   ├── BarPoll.js # Component for the individual poll bar chart
+    │   ├── CreateQuestion.js # Page for creating new questions.
+    │   ├── Dashboard.js  # The home page. Holds two tabs for unanswered/answered questions
+    │   ├── LeaderBoard.js  # The home page. Holds two tabs that toggles between unanswered/answered questions
+    │   ├── Nav.js # Left panel navigation menu. Holds link to /, /add, /leaderboard, and logout button
+    │   ├── QuestionCard.js # Component for rendering individual question cards, the polls, and results
+    │   ├── QuestionPage.js # Page that renders individual question when user navigates to /question/:id
+    │   ├── RightContainer.js # Right container that persists across home, leaderboard, and question creation
+    │   └── SignIn.js # Page that handles dispatching authenticated user to store and loading dashboard
+    ├── middleware
+    │   ├── index.js # Combines and applies thunk and logger
+    │   └── logger.js  # Middleware for console logging actions that affects the store
+    ├── reducers
+    │   ├── authedUser.js # handles returning the changed state to store that relates to authed user
+    │   ├── index.js # combines authedUser, questions, users, and loading bar reducer to one
+    │   ├── questions.js
+    │   └── users.js
+    ├── utils
+    │   ├── _DATA.js  # data api provided in the starter code
+    │   └── api.js # some exportable functions imported from the api
     ├── index.css # Didn't use index.css starter file. Instead, I used styled components to create a custom design fo the app
-    ├── index.js # Added Brower Router to support url tracking
-    ├── navMenu.js # Holds the "MyReads" logo and the "Add a Book" button that leads you to the search page
-    └── searchBooks.js # Search page that includes the back button, the input field, and a grid that allows you to search for books
+    └── index.js # initiates store
 ```
 
 ## Extra Packages Downloaded
